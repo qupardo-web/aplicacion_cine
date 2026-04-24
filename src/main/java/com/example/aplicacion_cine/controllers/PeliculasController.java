@@ -46,4 +46,16 @@ public class PeliculasController {
         }
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Pelicula>> getPeliculas(
+            @RequestParam(required = false) String genero,
+            @RequestParam(required = false) String nombre){
+        try{
+            List<Pelicula> peliculas = this.peliculasService.filtrarPeliculas(genero, nombre);
+            return ResponseEntity.ok(peliculas);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
 }

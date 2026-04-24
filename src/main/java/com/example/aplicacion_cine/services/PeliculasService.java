@@ -9,4 +9,5 @@ public interface PeliculasService {
     Pelicula createPelicula(Pelicula pelicula);
     List<Pelicula> getAll();
     List<Pelicula> getPeliculasPorLimite(String limite);
+    List<Pelicula> filtrarPeliculas(String genero, String nombre);
 }

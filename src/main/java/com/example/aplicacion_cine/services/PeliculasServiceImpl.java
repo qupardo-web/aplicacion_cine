@@ -43,4 +43,16 @@ public class PeliculasServiceImpl implements PeliculasService{
                 Collections.emptyList();
         };
     }
+
+    @Override
+    public List<Pelicula> filtrarPeliculas(String genero, String nombre){
+        if(genero != null && nombre !=null){
+            return peliculasRepository.findByGeneroAndNombreContainingIgnoreCase(genero, nombre);
+        }else if (genero != null) {
+            return peliculasRepository.findByGeneroIgnoreCase(genero);
+        }else if (nombre != null){
+            return peliculasRepository.findByNombreContainingIgnoreCase(nombre);
+        }
+        return peliculasRepository.findAll();
+    }
 }

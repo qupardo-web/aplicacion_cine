@@ -11,4 +11,10 @@ public interface PeliculasRepository extends MongoRepository<Pelicula, String> {
     List<Pelicula> findByEdadMinimaBetween(int edadMinimaAfter, int edadMinimaBefore);
 
     List<Pelicula> findByEdadMinimaGreaterThanEqual(int edadMinimaIsGreaterThan);
+
+    List<Pelicula> findByGeneroAndNombreContainingIgnoreCase(String genero, String nombre);
+
+    List<Pelicula> findByGeneroIgnoreCase(String genero);
+
+    List<Pelicula> findByNombreContainingIgnoreCase(String nombre);
 }
